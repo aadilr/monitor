@@ -1,0 +1,126 @@
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body, html {
+    height: 100%;
+    background-color: #ECF0F1;
+    color: #333;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #34495E;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    font-size: 1.8rem;
+}
+
+#dashboard {
+    display: grid;
+    grid-template-columns: 1fr 300px 1fr;
+    gap: 20px;
+    padding: 60px 20px 20px; /* Make space for header */
+    align-items: start;
+    justify-content: center;
+}
+
+#chart-container {
+    grid-column: 1 / 2;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+#gauge-container {
+    grid-column: 2 / 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+#gauge {
+    width: 100%; /* Responsive width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+#data-table-container {
+    grid-column: 3 / 4;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    overflow: auto; /* If content is taller than the container */
+}
+
+#data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+#data-table th, #data-table td {
+    text-align: left;
+    padding: 12px 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+#data-table th {
+    background-color: #2C3E50;
+    color: white;
+    position: sticky;
+    top: 0;
+}
+
+#data-table td {
+    background-color: #ffffff;
+}
+
+#data-table tr:hover {
+    background-color: #f9f9f9;
+}
+
+#current-speed {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #16A085; /* Green color for speed */
+}
+
+.updated {
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@media (max-width: 1000px) {
+    #dashboard {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+    }
+
+    #chart-container,
+    #gauge-container,
+    #data-table-container {
+        grid-column: 1;
+    }
+
+    #gauge-container {
+        order: -1; /* Display gauge above on small screens */
+    }
+}

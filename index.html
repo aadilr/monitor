@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataStream Monitor</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-gauges/gauge.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1>DataStream Monitor</h1>
+        <div id="current-speed">
+            <span>Current Speed: </span>
+            <span id="latest-rate">--</span>
+            <span>texts/hr</span>
+        </div>
+    </header>
+    <div id="dashboard">
+        <div id="chart-container">
+            <canvas id="dataChart"></canvas>
+        </div>
+        <div id="gauge-container">
+            <canvas id="gauge" data-type="radial-gauge"></canvas>
+        </div>
+        <div id="data-table-container">
+            <table id="data-table">
+                <thead>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Text Count</th>
+                        <th>Rate/Minute</th>
+                        <th>Hourly Rate</th>
+                        <th>Good to Mine</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data rows will be inserted here by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
